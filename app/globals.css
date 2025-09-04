@@ -10,3 +10,8 @@ html, body { height: 100%; }
 .btn-primary { @apply bg-brand-600 text-white hover:bg-brand-700; }
 .btn-secondary { @apply bg-white border border-gray-300 text-gray-900 hover:bg-gray-50; }
 .card { @apply rounded-2xl border border-gray-200 bg-white shadow-sm; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
