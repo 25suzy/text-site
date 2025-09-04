@@ -1,3 +1,6 @@
+import "./globals.css";
+
+
 export const metadata = {
   title: "Fineroo — Simple digital finance",
   description: "A practice landing page that mimics a fintech site using placeholder assets.",
