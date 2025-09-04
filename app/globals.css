@@ -17,3 +17,29 @@ html { scroll-behavior: smooth; }
 }
 
 .container { @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8; }
+
+:root{
+  --container: 1120px;
+  --radius: 16px;
+  --shadow: 0 8px 30px rgba(0,0,0,.06);
+  --h1: clamp(40px, 6vw, 64px);
+  --h2: clamp(24px, 3vw, 32px);
+}
+.container { max-width: var(--container); }
+
+/* 카드/버튼 토큰 */
+.card { border-radius: var(--radius); box-shadow: var(--shadow); }
+.btn  { border-radius: 9999px; }
+
+/* 파트너 로고 마키 */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 24s linear infinite; }
+
+/* 버튼 샤인(CTA) */
+@keyframes shine {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
