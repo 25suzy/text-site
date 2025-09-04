@@ -1,4 +1,5 @@
-import Reveal from "@/components/Reveal";
+import Reveal from "./Reveal";
+
 
 export default function Reviews() {
   const items = [
