@@ -5,15 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const NAV = [
-  { href: "#unify", label: "Unify" },
-  { href: "#flows", label: "Flows" },
-  { href: "#slider", label: "Showcase" },
-  { href: "#allinone", label: "All-in-one" },
-  { href: "#contactless", label: "Contactless" },
-  { href: "#convert", label: "Convert" },
-  { href: "#support", label: "Support" },
-];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
