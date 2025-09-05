@@ -2,44 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { --radius: 14px; }
-html, body { height: 100%; }
-.container { @apply mx-auto px-4 sm:px-6 lg:px-8; }
 
-.btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors; }
-.btn-primary { @apply bg-brand-600 text-white hover:bg-brand-700; }
-.btn-secondary { @apply bg-white border border-gray-300 text-gray-900 hover:bg-gray-50; }
-.card { @apply rounded-2xl border border-gray-200 bg-white shadow-sm; }
-
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-}
-
-.container { @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8; }
-
+/* ======= Layout tokens (exact numbers) ======= */
 :root{
-  --container: 1120px;
-  --radius: 16px;
-  --shadow: 0 8px 30px rgba(0,0,0,.06);
-  --h1: clamp(40px, 6vw, 64px);
-  --h2: clamp(24px, 3vw, 32px);
-}
-.container { max-width: var(--container); }
+  /* Container */
+  --container: 1280px;                 /* Desktop 컨텐츠 폭: 1280px */
 
-/* 카드/버튼 토큰 */
-.card { border-radius: var(--radius); box-shadow: var(--shadow); }
-.btn  { border-radius: 9999px; }
+  /* Section paddings (px) */
+  --sectionY-m: 56px;                  /* <640px */
+  --sectionY-t: 88px;                  /* 640–1024px */
+  --sectionY-d: 104px;                 /* ≥1024px */
+  --heroY-m: 56px;
+  --heroY-t: 80px;
+  --heroY-d: 96px;
 
-/* 파트너 로고 마키 */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee { animation: marquee 24s linear infinite; }
+  /* Radius / Shadow (px) */
+  --card-radius: 14px;
+  --btn-radius: 9999px;                /* pill */
 
-/* 버튼 샤인(CTA) */
-@keyframes shine {
-  0% { transform: translateX(-150%); }
-  100% { transform: translateX(150%); }
+  /* Typography (px) */
+  --h1-m: 40px;                        /* mobile hero title */
+  --h1-d: 56px;                        /* desktop hero title */
+  --h2: 32px;                          /* section title desktop */
+  --h2-m: 24px;                        /* section title mobile */
+
+  /* Animation timings (ms) */
+  --reveal-duration: 560ms;            /* 섹션 등장 */
+  --reveal-stagger: 120ms;             /* 순차 지연 기본 간격 */
+  --merge-duration: 600ms;             /* Unify 카드 병합 */
+  --slider-duration: 22000ms;          /* Showcase 무한 슬라이드 */
 }
+
+/* Container & Section helpers */
+.container { @apply mx-auto px-4 sm:px-6 lg:px-8; max-width: var(--container); }
+.section   { padding-block: var(--sectionY-m); }
+.section-hero { padding-block: var(--heroY-m); }
+@media (min-width:640px){
+  .section      { padding-block: var(--sectionY-t); }
+  .section-hero { padding-block: var(--heroY-t); }
+}
+@media (min-width:1024px){
+  .section      { padding-block: var(--sectionY-d); }
+  .section-hero { padding-block: var(--heroY-d); }
+}
+
+/* Cards / Buttons */
+.card { border-radius: var(--card-radius); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+.btn  { border-radius: var(--btn-radius); }
+
+/* Headings scale */
+.h1 { font-size: var(--h1-m); line-height: 1.15; }
+.h2 { font-size: var(--h2-m); line-height: 1.25; }
+@media (min-width:1024px){
+  .h1 { font-size: var(--h1-d); }
+  .h2 { font-size: var(--h2); }
+}
+
+/* ======= Keyframes ======= */
+@keyframes slideFadeUp { from {opacity:0; transform: translateY(12px)} to {opacity:1; transform: translateY(0)} }
+@keyframes mergeLeft  { from { transform: translateX(-28px) } to { transform: translateX(0) } }
+@keyframes mergeRight { from { transform: translateX( 28px) } to { transform: translateX(0) } }
+@keyframes sliderLoop { from { transform: translateX(0) } to { transform: translateX(-50%) } }
