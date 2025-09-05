@@ -37,3 +37,9 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+<div className="container py-6 grid md:grid-cols-2 gap-4">
+  <div className="card h-16" /> {/* 64px */}
+  <div className="card h-16" />
+</div>
