@@ -7,6 +7,7 @@ import AllInOne from "../components/AllInOne";
 import Contactless from "../components/Contactless";
 import Converter from "../components/Converter";
 import Footer from "../components/Footer";
+import FloatingMenu from "../components/FloatingMenu";
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
         <Converter />
       </main>
       <Footer />
+      <FloatingMenu />
     </>
   );
 }
