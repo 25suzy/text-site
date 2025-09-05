@@ -21,12 +21,15 @@ export default function Unify(){
         </div>
 
         <div className="relative h-[320px] md:h-[360px]">
-          {/* 이동량 28px, duration 600ms → keyframes/vars와 일치 */}
-          <div className={`absolute left-1/2 top-1/2 -translate-x-[60%] -translate-y-1/2 w-60 h-36 card border bg-white
-                           ${on ? "animate-[mergeLeft_var(--merge-duration)_ease-out_forwards]" : ""}`} />
-          <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-36 card border bg-white`} />
-          <div className={`absolute left-1/2 top-1/2 -translate-x-[40%] -translate-y-1/2 w-60 h-36 card border bg-white
-                           ${on ? "animate-[mergeRight_var(--merge-duration)_ease-out_forwards]" : ""}`} />
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-[60%] -translate-y-1/2 w-60 h-36 card border bg-white"
+            style={on ? { animation: "mergeLeft var(--merge-duration) ease-out forwards" } : undefined}
+          />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-36 card border bg-white" />
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-[40%] -translate-y-1/2 w-60 h-36 card border bg-white"
+            style={on ? { animation: "mergeRight var(--merge-duration) ease-out forwards" } : undefined}
+          />
           <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-brand-50 to-white" />
         </div>
       </div>
