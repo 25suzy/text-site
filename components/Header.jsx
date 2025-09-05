@@ -16,11 +16,12 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-40 backdrop-blur border-b transition-all ${
-        scrolled ? "bg-white/90 shadow-sm" : "bg-white/70"
-      }`}
-    >
+    <header className={`sticky top-0 z-40 backdrop-blur border-b transition-all ${
+  scrolled ? "bg-white/95 shadow-sm" : "bg-white/80"
+}`}>
+  <div className={`container flex items-center gap-4 transition-all ${scrolled ? "h-14" : "h-16"}`}>
+    {/* ...나머지 동일 */}
+
       <div className={`container flex items-center gap-4 transition-all ${scrolled ? "h-14" : "h-16"}`}>
         <Link href="/" className="flex items-center gap-2">
           <Image src="/brand/logo.svg" alt="Fineroo logo" width={24} height={24} priority />
